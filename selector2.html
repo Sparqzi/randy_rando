@@ -1,0 +1,138 @@
+<style>
+    code {
+        font-family: "Courier New", monospace;
+        font-size: inherit;
+    }
+    code.inline {
+        border: 1px solid #000000;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: #E7E7E7;
+        border-radius: 5px;
+    }
+    pre code.blocked {
+        display: block;
+        background-color: #E7E7E7;
+        white-space: pre;
+        overflow: auto;
+        max-width: 100%;
+        max-height: 300px;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    single-select, multi-select { display: none; }
+    .option-group { border-top: 1px solid black; }
+    .option-group h4 {
+        border-bottom: 1px solid transparent;
+        padding: -20px;
+    }
+    .option-desc { color: #808080; text-size: smaller; }
+    .single-selector, .multi-selector { border: 1px solid black; border-radius: 5px; }
+    .single-selector select, .multi-selector select { display: none; }
+    .single-select-selected, multi-select-selected {
+        background-color: #FFFFFF; border-radius: 5px;
+    }
+    .single-select-selected:after, .multi-select-selected:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 10px;
+        width: 0;
+        border: 6px solid transparent;
+        border-color: #000000 transparent transparent transparent;
+    }
+    .single-select-selected.select-arrow-active:after,
+    .multi-select-selected.select-arrow-active:after {
+        border-color: transparent transparent #000000 transparent;
+        top: 7px;
+    }
+    .single-select-selected,
+    .multi-select-selected {
+        color: #000000
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+    }
+    .single-select-items div.described-option,
+    .single-select-items div.option,
+    .multi-select-items div.described-option,
+    .multi-select-items div.option {
+        color: #000000
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: rgba(0, 0, 0, 0.1) transparent transparent transparent;
+        cursor: pointer;
+    }
+    .single-select-items { position: relative; top: 100%; left: 0; right: 0; z-index: 99 }
+    .select-hide { display: none; }
+    .single-select-items div.described-option:hover,
+    .single-select-items div.option:hover,
+    .multi-select-items div.described-option:hover,
+    .multi-select-items div.option:hover,
+    .same-as-selected {
+         background-color: rgba(0, 0, 0, 0.1);
+    }
+    .single-select-items div.selected-option,
+    .multi-select-items div.selected-option {
+        background-color: #AFAFAF;
+    }
+    .select-done-button {
+        border: 1px solid;
+        border-color: #000000;
+        background-color: #F3F3F3;
+        border-radius: 5px;
+        padding: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+</style>
+
+<form action="bologna.py">
+    <div>My name is <code class="inline-code">Henry</code> the Ermine.</div>
+    <pre><code class="blocked">horses are
+very awesome
+to see in movies</code></pre>
+    <single-select label="Select from me!" id="erego" name="meep">
+        <option value="opt1" subtext="A llama from a weird area I don't know.">Larry the Llama</option>
+        <option value="opt2" subtext="A stranger.">Limbo the Leopard</option>
+        <option value="opt3" selected>Naress the Narwhal</option>
+    </single-select>
+    <single-select label="Select from me!" id="sheep" name="mreep">
+        <option value="opt1" subtext="An alien from outer space.">Meep</option>
+        <option value="opt2">Castle-King</option>
+        <option value="opt3" subtext="Strange old weirdo.">Nymphus</option>
+    </single-select>
+    <multi-select label="!!!Select Things!!!" id="brake" name="melon">
+        <option value="opt1" subtext="The answer to life, the universe, and everything else.">42</option>
+        <option value="opt2" selected>Marilyn Monroe</option>
+        <option value="opt3" subtext="PI" selected>3.14</option>
+        <option value="opt4" subtext="Delicious donuts!!!">Krispy Cream</option>
+    </multi-select>
+    <multi-select label="What do you want?" id="horny" name="blake">
+        <option-group value="g1" label="Things with horns that make sound.">
+            <option value="opt1" subtext="A type of car.">Jalopy</option>
+            <option value="opt2">The Titanic</option>
+            <option value="opt3">semi truck</option>
+        </option-group>
+        <option-group value="g2" label="Things with horns that don't make sound.">
+            <option value="opt1">dragon</option>
+            <option value="opt2">goat</option>
+            <option value="opt3" selected>unicorn</option>
+        </option-group>
+        <option-group value="g3" label="Things without horns of any kind.">
+            <option value="opt1">desk</option>
+            <option value="opt2">can</option>
+            <option value="opt3">paper</option>
+            <option value="opt4" selected><del>furries</del></option>
+        </option-group>
+    </multi-select>
+    <label for="st">Select a Time</label>
+    <input type="time" id="st" name="st">
+    <input type="submit" value="EEEEEE">
+</form>
+
+<script type="text/javascript" src="pieces2.js"></script>
